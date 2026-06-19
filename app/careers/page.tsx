@@ -1,74 +1,69 @@
+import Link from "next/link";
+
 const careers = [
   {
-    title: "Software Development",
-    desc: "Build applications, websites and scalable software systems.",
-    skills: "React • Next.js • APIs"
+    title: "Software Engineer",
+    desc: "Design and build applications, websites and software systems.",
   },
   {
-    title: "Data Science",
-    desc: "Analyze data and build intelligent solutions.",
-    skills: "Python • ML • Statistics"
+    title: "Data Scientist",
+    desc: "Analyze data and build intelligent prediction models.",
   },
   {
-    title: "Cybersecurity",
-    desc: "Protect systems from digital threats.",
-    skills: "Security • Networks • Encryption"
+    title: "AI Engineer",
+    desc: "Develop machine learning and generative AI solutions.",
   },
   {
-    title: "Artificial Intelligence",
-    desc: "Create intelligent AI powered applications.",
-    skills: "AI • LLMs • Automation"
-  }
-]
+    title: "Cybersecurity Analyst",
+    desc: "Protect systems, networks and digital infrastructure.",
+  },
+  {
+    title: "Cloud Engineer",
+    desc: "Build scalable cloud-based platforms and services.",
+  },
+  {
+    title: "Product Manager",
+    desc: "Lead product strategy, planning and execution.",
+  },
+];
 
+export default function Careers() {
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white p-10">
 
-export default function Careers(){
+      <Link href="/">
+        <button className="mb-8 text-cyan-300 hover:text-cyan-200">
+          ← Back to Home
+        </button>
+      </Link>
 
-return(
+      <h1 className="text-5xl font-bold mb-4">
+        Career Explorer
+      </h1>
 
-<main className="min-h-screen bg-slate-950 text-white p-16">
+      <p className="text-slate-300 mb-10">
+        Explore trending technology and professional career paths.
+      </p>
 
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-<h1 className="text-5xl font-bold text-center">
-Career Explorer
-</h1>
+        {careers.map((career) => (
+          <div
+            key={career.title}
+            className="p-6 rounded-2xl bg-slate-900 border border-slate-700 hover:border-cyan-400 hover:scale-105 transition"
+          >
+            <h2 className="text-2xl font-bold mb-3">
+              {career.title}
+            </h2>
 
+            <p className="text-slate-300">
+              {career.desc}
+            </p>
+          </div>
+        ))}
 
-<p className="text-center mt-5 text-gray-400">
-Discover your future career path
-</p>
+      </div>
 
-
-<div className="grid grid-cols-2 gap-8 mt-16">
-
-
-{careers.map((item)=>(
-
-<div className="bg-slate-900 rounded-2xl p-8 border border-blue-500">
-
-<h2 className="text-2xl font-bold">
-{item.title}
-</h2>
-
-
-<p className="mt-4 text-gray-300">
-{item.desc}
-</p>
-
-
-<p className="mt-6 text-blue-400">
-{item.skills}
-</p>
-
-</div>
-
-))}
-
-
-</div>
-
-</main>
-
-)
-
+    </main>
+  );
 }
