@@ -1,41 +1,51 @@
-export default function Roadmaps(){
+import Link from "next/link";
 
-const steps=[
-"HTML CSS JavaScript",
-"React & Next.js",
-"Backend Integration",
-"AI Integration",
-"Deployment"
-]
+const roadmaps = [
+  "Frontend Development",
+  "Backend Development",
+  "Artificial Intelligence",
+  "Data Science",
+  "Cybersecurity",
+  "Cloud Computing",
+];
 
-return(
+export default function Roadmaps() {
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white p-10">
 
-<main className="min-h-screen bg-slate-950 text-white p-20">
+      <Link href="/">
+        <button className="mb-8 text-cyan-300 hover:text-cyan-200">
+          ← Back to Home
+        </button>
+      </Link>
 
-<h1 className="text-5xl font-bold">
-Learning Roadmap
-</h1>
+      <h1 className="text-5xl font-bold mb-4">
+        Learning Roadmaps
+      </h1>
 
+      <p className="text-slate-300 mb-10">
+        Follow structured paths to master industry-relevant skills.
+      </p>
 
-<div className="mt-10 space-y-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-{steps.map((step,index)=>(
+        {roadmaps.map((roadmap) => (
+          <div
+            key={roadmap}
+            className="p-6 rounded-2xl bg-slate-900 border border-slate-700 hover:border-cyan-400 hover:scale-105 transition"
+          >
+            <h2 className="text-2xl font-bold">
+              {roadmap}
+            </h2>
 
-<div 
-key={index}
-className="bg-slate-900 p-6 rounded-xl"
->
+            <p className="mt-3 text-slate-300">
+              Structured learning pathway from beginner to advanced.
+            </p>
+          </div>
+        ))}
 
-{index+1}. {step}
+      </div>
 
-</div>
-
-))}
-
-</div>
-
-</main>
-
-)
-
+    </main>
+  );
 }
